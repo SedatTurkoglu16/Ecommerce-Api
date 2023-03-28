@@ -9,10 +9,10 @@ const { notFound, errorHandler } = require('./middlewares/errorHandler');
 const authRouter = require('./routes/authRoute')
 
 dbConnect();
+app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use("/api/user", authRouter);
-app.use(cookieParser());
 
 app.use(notFound);
 app.use(errorHandler);
